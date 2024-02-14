@@ -121,7 +121,7 @@ if API_O:
     # Create an OpenAI instance
     MODEL = 'gpt-4-1106-preview'
     K = 10000
-    llm = OpenAI(model_name=MODEL)
+    llm = OpenAI(model_name=MODEL, openai_api_key=API_O)
 
     # Create a ConversationEntityMemory object if not already created
     if 'entity_memory' not in st.session_state:
