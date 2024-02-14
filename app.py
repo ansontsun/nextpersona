@@ -27,10 +27,10 @@ def get_prompt():
     master_conversation_template = ""
     master_prompt = ""
 
-    with st.sidebar.expander("User Configuration"):
+    with st.sidebar.expander("User Configuration (Required)"):
         user_name = st.text_input("Name", key="config_user_name", label_visibility='visible')
 
-    with st.sidebar.expander("Persona Configuration"):
+    with st.sidebar.expander("Persona Configuration (Required)"):
         persona_name = st.text_input("Name", key="config_persona_name", label_visibility='visible')
         persona_gender = st.text_input("Gender", key="config_persona_gender", label_visibility='visible')
         persona_age = st.slider("Age", min_value=18, max_value=99, step=1, label_visibility="visible")
@@ -135,7 +135,7 @@ if API_O:
         memory=st.session_state.entity_memory
     )
 else:
-    st.sidebar.warning('An API key from OpenAI is required to use this service. The API key is not shared over the internet.')
+    st.sidebar.warning("An API key from OpenAI is required to use this service. The API key is not shared over the internet.")
     # st.stop()
 
 # Add a button to start a new chat
