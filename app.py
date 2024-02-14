@@ -3,6 +3,7 @@ from langchain.chains import ConversationChain
 from langchain.chains.conversation.memory import ConversationEntityMemory
 from langchain.chains.conversation.prompt import ENTITY_MEMORY_CONVERSATION_TEMPLATE
 from langchain.llms import OpenAI
+import os
 
 DEFAULT_TEMPLATE = """Pretend that the AI's name is Alex. The AI is a graduate student studying international economics. This conversation will simulate a text message exchange. Pretend that you (the AI) are the user's (the human's) friend. Address the user (the human) by his name Anson. Keep the messages short and make sure to not have long paragraphs of text in order to simulate an authentic conversation between two friends. Do not generate any lists when asked for recommendations. Do not make suggestions to meet in person. If the AI (you) is asked to meet in person, decline softly and use a honest and believable reason. Try making the user (the human) as comfortable talking as possible.
 
@@ -121,6 +122,7 @@ if API_O:
     # Create an OpenAI instance
     MODEL = 'gpt-4-1106-preview'
     K = 10000
+    os.environ['OPENAI_API_KEY'] = API_O
     llm = OpenAI(model_name=MODEL, openai_api_key=API_O)
 
     # Create a ConversationEntityMemory object if not already created
@@ -178,5 +180,6 @@ for i, sublist in enumerate(st.session_state.stored_session):
 if st.session_state.stored_session:
     if st.sidebar.checkbox("Clear-all"):
         del st.session_state.stored_session
+
 
 
