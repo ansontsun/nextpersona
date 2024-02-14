@@ -19,8 +19,9 @@ You:"""
 
 st.set_page_config(page_title='NextPersona', layout='wide', initial_sidebar_state='expanded')
 
-user_name = "User"
-persona_name = "Persona"
+user_name = ""
+persona_name = ""
+master_prompt = ""
 
 def get_prompt():
     global user_name
@@ -143,6 +144,12 @@ else:
 # Add a button to start a new chat
 st.sidebar.button("New Chat", on_click=new_chat, type='primary')
 
+if (user_name == ""):
+    user_name = "User"
+
+if (persona_name == ""):
+    persona_name = "Persona"
+
 # Get the user input
 user_input = get_text()
 user_input = user_name + ": " + user_input
@@ -180,6 +187,5 @@ for i, sublist in enumerate(st.session_state.stored_session):
 if st.session_state.stored_session:
     if st.sidebar.checkbox("Clear-all"):
         del st.session_state.stored_session
-
 
 
