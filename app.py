@@ -16,7 +16,7 @@ Human: {input}
 You:"""
 # PROMPT = PromptTemplate(input_variables=["entities", "history", "input"], template=DEFAULT_TEMPLATE)
 
-st.set_page_config(page_title='NextPersona', layout='wide')
+st.set_page_config(page_title='NextPersona', layout='wide', initial_sidebar_state='expanded')
 
 user_name = "User"
 persona_name = "Persona"
