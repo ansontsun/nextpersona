@@ -123,7 +123,7 @@ if API_O:
     MODEL = 'gpt-4-1106-preview'
     K = 10000
     os.environ['OPENAI_API_KEY'] = API_O
-    llm = OpenAI(model_name=MODEL, openai_api_key=API_O)
+    llm = OpenAI(model_name=MODEL)
 
     # Create a ConversationEntityMemory object if not already created
     if 'entity_memory' not in st.session_state:
