@@ -145,7 +145,7 @@ st.sidebar.button("New Chat", on_click=new_chat, type='primary')
 user_input = get_text()
 user_input = user_name + ": " + user_input
 
-st.text("Developed and maintained by Anson Sun / BlueHash. For educational and testing purposes only.\nNextPersona is not responsible for any content inputted, generated or displayed through this version of the platform")
+st.text("Developed and maintained by Anson Sun / BlueHash. For educational and testing purposes only.\nNextPersona is not responsible for any content inputted, generated or displayed through this version of the platform.")
 
 # Generate the output using the ConversationChain object and the user input, and add the input/output to the session
 if user_input != user_name + ": ":
