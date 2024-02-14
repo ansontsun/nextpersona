@@ -27,7 +27,7 @@ def get_prompt():
     global user_name
     global  persona_name
     master_conversation_template = ""
-    master_prompt = ""
+    global master_prompt
 
     with st.sidebar.expander("User Configuration (Required)"):
         user_name = st.text_input("Name", key="config_user_name", label_visibility='visible')
@@ -121,6 +121,7 @@ API_O = st.sidebar.text_input("OpenAI API KEY", type="password")
 # Session state storage would be ideal
 if API_O:
     # Create an OpenAI instance
+    global ENTITY_MEMORY_CONVERSATION_TEMPLATE
     MODEL = 'gpt-4-1106-preview'
     K = 10000
     os.environ['OPENAI_API_KEY'] = API_O
@@ -187,5 +188,4 @@ for i, sublist in enumerate(st.session_state.stored_session):
 if st.session_state.stored_session:
     if st.sidebar.checkbox("Clear-all"):
         del st.session_state.stored_session
-
 
