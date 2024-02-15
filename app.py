@@ -132,7 +132,7 @@ if API_O:
     # st.sidebar.warning("An API key from OpenAI is required to use this service. The API key is not shared over the internet.")
     # st.stop()
 
-st.sidebar.warning("All items above are required. The API key is stored locally and not shared over the internet.")
+st.sidebar.warning("All items above are required. The API key is stored locally and is not shared over the internet.")
 
 if user_name == "":
     user_name = "User"
