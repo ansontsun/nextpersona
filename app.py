@@ -28,6 +28,9 @@ st.sidebar.header("Settings")
 user_name = ""
 persona_name = ""
 
+# Ask the user to enter their OpenAI API key
+API_O = st.sidebar.text_input("OpenAI API Key", type="password")
+
 def get_prompt():
     global user_name
     global  persona_name
@@ -105,9 +108,6 @@ def get_text():
                                label_visibility='hidden')
     return input_text
 
-
-# Ask the user to enter their OpenAI API key
-API_O = st.sidebar.text_input("OpenAI API Key", type="password")
 
 # Session state storage would be ideal
 if API_O:
