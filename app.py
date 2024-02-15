@@ -78,7 +78,7 @@ else:
     ENTITY_MEMORY_CONVERSATION_TEMPLATE.template = DEFAULT_TEMPLATE
 
 st.text("Developed and maintained by Anson Sun. For educational and testing purposes only.\nNextPersona is not responsible for any content transmitted, generated or displayed through this application.")
-st.warning("""Please use configuration settings to personalize your unique persona. This app will run with default settings if no configuration parameter is provided.""")
+st.warning("""Configuration settings can be used to customize your unique persona. This app will run with default settings if no configuration parameter is provided.""")
 
 # Initialize session states
 if 'key' not in st.session_state:
