@@ -24,16 +24,16 @@ st.title("NextPersona")
 st.subheader("Alpha V0.1.5 (Pre-Release)")
 st.sidebar.header("Settings")
 
-
 user_name = ""
 persona_name = ""
 
 
 def get_prompt():
-    global user_name
-    global  persona_name
     master_conversation_template = ""
     master_prompt = ""
+
+    global user_name
+    global persona_name
 
     with st.sidebar.expander("User Configurations"):
         user_name = st.text_input("Name", key="config_user_name", label_visibility='visible')
@@ -46,9 +46,10 @@ def get_prompt():
         persona_occupation = st.text_input("Occupation", key="config_persona_occupation", label_visibility='visible')
         persona_hobbies = st.text_input("Hobbies", key="config_persona_hobbies", label_visibility='visible')
 
-    if persona_name != "" and persona_gender != "" and persona_age >= 18 and persona_education != "" and persona_hobbies != "" and user_name != "":
+    if persona_name != "" or persona_gender != "" or persona_age >= 18 or persona_education != "" or persona_hobbies != "" or user_name != "":
         master_prompt = "Your name is " + persona_name + ", your gender is " + persona_gender + ", your age is " + str(persona_age) + ", your education background is " + persona_education + ", your occupation is " + persona_occupation + ", your hobbies are " + persona_hobbies + ". You are the user (human)'s good friend. Engage in a friendly and supportive conversation with the user. Refer the user by their name " + user_name + ". Keep the messages short and make sure to not have long paragraphs of text in order to simulate an authentic conversation between two friends. Do not generate any lists when asked for recommendations. Do not make suggestions to meet in person. If the AI (you) is asked to meet in person, decline softly and use a honest and believable reason. Try making the user (the human) as comfortable talking as possible."
-
+    else:
+        master_prompt = ""
     # done_button = st.sidebar.button("Done", key="done_button", type="primary")
 
     # if done_button:
@@ -77,8 +78,10 @@ if master_prompt != "":
 else:
     ENTITY_MEMORY_CONVERSATION_TEMPLATE.template = DEFAULT_TEMPLATE
 
-st.text("Developed and maintained by Anson Sun. For educational and testing purposes only.\nNextPersona is not responsible for any content transmitted, generated or displayed through this application.")
-st.warning("""Configuration settings can be used to customize your unique persona. This app will run with default settings if no configuration parameter is provided.""")
+st.text(
+    "Developed and maintained by Anson Sun. For educational and testing purposes only.\nNextPersona is not responsible for any content transmitted, generated or displayed through this application.")
+st.warning(
+    """Configuration settings can be used to customize your unique persona. This app will run with default settings if no configuration parameter is provided.""")
 
 # Initialize session states
 if 'key' not in st.session_state:
@@ -110,7 +113,6 @@ def get_text():
 # Ask the user to enter their OpenAI API key
 API_O = st.sidebar.text_input("OpenAI API Key", type="password")
 
-
 # Session state storage would be ideal
 if API_O:
     # Create an OpenAI instance
@@ -131,7 +133,8 @@ if API_O:
         memory=st.session_state.entity_memory
     )
 else:
-    st.sidebar.warning("An API key from OpenAI is required to use this application. The API key remains private and is not publicly accessible.")
+    st.sidebar.warning(
+        "An API key from OpenAI is required to use this application. The API key remains private and is not publicly accessible.")
     # st.stop()
 
 # st.sidebar.warning("All items above are required. The API key is stored locally and is not shared over the internet.")
@@ -145,7 +148,6 @@ if persona_name == "":
 # Get the user input
 user_input = get_text()
 user_input = user_name + ": " + user_input
-
 
 # Generate the output using the ConversationChain object and the user input, and add the input/output to the session
 if user_input != user_name + ": ":
@@ -178,5 +180,3 @@ for i, sublist in enumerate(st.session_state.stored_session):
 if st.session_state.stored_session:
     if st.sidebar.checkbox("Clear-all"):
         del st.session_state.stored_session
-
-
