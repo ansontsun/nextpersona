@@ -171,6 +171,8 @@ with st.expander("Conversation", expanded=True):
     if download_str:
         st.download_button('Download', download_str)
 
+st.sidebar.link_button("About Project", "https://www.bluehash.com/projects/nextpersona/", type="secondary")
+
 # Display stored conversation sessions in the sidebar
 for i, sublist in enumerate(st.session_state.stored_session):
     with st.sidebar.expander(label=f"Conversation-Session:{i}"):
@@ -180,3 +182,4 @@ for i, sublist in enumerate(st.session_state.stored_session):
 if st.session_state.stored_session:
     if st.sidebar.checkbox("Clear-all"):
         del st.session_state.stored_session
+
