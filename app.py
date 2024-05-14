@@ -79,7 +79,7 @@ else:
     ENTITY_MEMORY_CONVERSATION_TEMPLATE.template = DEFAULT_TEMPLATE
 
 st.text(
-    "Developed and maintained by Anson Sun. For educational and testing purposes only.\nNextPersona is not responsible for any content transmitted, generated or displayed through this application.")
+    "Developed and maintained by @ansontsun. For educational and testing purposes only.\nNextPersona is not responsible for any content transmitted, generated or displayed through this application.")
 st.warning(
     """Configuration settings can be used to customize your unique persona. This app will run with default settings if no configuration parameter is provided.""")
 
