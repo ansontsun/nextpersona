@@ -171,7 +171,7 @@ with st.expander("Conversation", expanded=True):
     if download_str:
         st.download_button('Download', download_str)
 
-st.sidebar.link_button("About Project", "https://www.bluehash.com/projects/nextpersona/", type="secondary")
+st.sidebar.link_button("About Project", "https://www.ansonsun.com/projects/nextpersona/", type="secondary")
 
 # Display stored conversation sessions in the sidebar
 for i, sublist in enumerate(st.session_state.stored_session):
