@@ -21,7 +21,6 @@ st.set_page_config(page_title='NextPersona', layout='wide', initial_sidebar_stat
 
 # Set up the Streamlit app layout
 st.title("NextPersona")
-st.subheader("Alpha V0.1.5 (Pre-Release)")
 st.sidebar.header("Settings")
 
 user_name = ""
@@ -172,6 +171,8 @@ with st.expander("Conversation", expanded=True):
         st.download_button('Download', download_str)
 
 st.sidebar.link_button("About Project", "https://www.ansonsun.com/projects/nextpersona/", type="secondary")
+st.sidebar.link_button("Back to smoono", "https://www.smoono.com", type="secondary")
+st.sidebar.text("Alpha V0.1.9 (Pre-Release)")
 
 # Display stored conversation sessions in the sidebar
 for i, sublist in enumerate(st.session_state.stored_session):
@@ -182,4 +183,3 @@ for i, sublist in enumerate(st.session_state.stored_session):
 if st.session_state.stored_session:
     if st.sidebar.checkbox("Clear-all"):
         del st.session_state.stored_session
-
