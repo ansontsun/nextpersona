@@ -171,7 +171,7 @@ with st.expander("Conversation", expanded=True):
         st.download_button('Download', download_str)
 
 st.sidebar.link_button("About Project", "https://www.ansonsun.com/projects/nextpersona/", type="secondary")
-st.sidebar.link_button("View on Github", "https://github.com/ansontsun/nextpersona")
+st.sidebar.link_button("View on GitHub", "https://github.com/ansontsun/nextpersona")
 st.sidebar.link_button("Back to smoono", "https://www.smoono.com", type="secondary")
 st.sidebar.text("Alpha V0.1.9 (Pre-Release)")
 
